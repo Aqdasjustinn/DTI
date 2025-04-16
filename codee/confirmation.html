@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DormLee Booking</title>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #EEF4ED;
+      margin: 0;
+      padding: 60px 20px;
+      color: #0B2545;
+    }
+  
+    .container {
+      max-width: 750px;
+      margin: auto;
+      background: #ffffff;
+      padding: 40px 30px;
+      border-radius: 16px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease-in-out;
+    }
+  
+    h1 {
+      text-align: center;
+      color: #134074;
+      margin-bottom: 10px;
+      font-size: 32px;
+    }
+  
+    h2 {
+      text-align: center;
+      color: #13315C;
+      font-size: 22px;
+      margin-top: 0;
+      margin-bottom: 30px;
+    }
+  
+    .details {
+      font-size: 16px;
+      line-height: 1.8;
+      background-color: #f9fbfc;
+      padding: 20px;
+      border-radius: 12px;
+      border-left: 5px solid #8DA9C4;
+      margin-bottom: 30px;
+    }
+  
+    input,
+    select {
+      width: 100%;
+      padding: 14px;
+      margin: 10px 0 20px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+    }
+  
+    button {
+      width: 100%;
+      padding: 14px;
+      background-color: #134074;
+      color: white;
+      border: none;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+  
+    button:hover {
+      background-color: #0B2545;
+    }
+  
+    .btn-reset {
+      display: block;
+      margin: 30px auto 0;
+      padding: 14px 28px;
+      background-color: #8DA9C4;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      width: 220px;
+      text-align: center;
+      border: none;
+      transition: background-color 0.3s ease-in-out;
+    }
+  
+    .btn-reset:hover {
+      background-color: #134074;
+    }
+    .hidden {
+      display: none;
+    }
+    @media (max-width: 600px) {
+      .container {
+        padding: 25px 20px;
+      }
+      h1 {
+        font-size: 26px;
+      }
+      h2 {
+        font-size: 18px;
+      }
+    }
+  </style>
+
+</head>
+<body>
+
+  <!-- Booking Form Section -->
+  <div class="container" id="form-section">
+    <h1>DormLee Booking Form</h1>
+    <form id="bookingForm">
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="tel" name="phone" placeholder="Phone Number" required>
+      <input type="text" name="branch" placeholder="Branch" required>
+      <input type="number" name="semester" placeholder="Semester" required>
+      <input type="text" name="room" placeholder="Room Number" required>
+      <button type="submit">Confirm Booking</button>
+    </form>
+  </div>
+  <!-- Confirmation Section -->
+
+<div class="container hidden" id="confirmation-section">
+
+    <h2>Booking Confirmed 🎉</h2>
+
+    <div class="details" id="confirmationDetails"></div>
+
+    <button class="btn" onclick="goToConfirmed()">Done</button>
+
+  </div>
+  <script>
+
+    const form = document.getElementById("bookingForm");
+
+    const formSection = document.getElementById("form-section");
+
+    const confirmationSection = document.getElementById("confirmation-section");
+
+    const confirmationDetails = document.getElementById("confirmationDetails");
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const formData = new FormData(form);
+      let output = "";
+      for (let [key, value] of formData.entries()) {
+
+        const label = key.charAt(0).toUpperCase() + key.slice(1).replace(/_/g, ' ');
+
+        output += `<p><strong>${label}:</strong> ${value}</p>`;
+
+      }
+      confirmationDetails.innerHTML = output;
+
+      formSection.classList.add("hidden");
+
+      confirmationSection.classList.remove("hidden");
+
+    });
+    function resetForm() {
+      form.reset();
+      confirmationSection.classList.add("hidden");
+      formSection.classList.remove("hidden");
+    }
+    function goToConfirmed() {
+
+  window.location.href = "confirmed.html";
+
+}
+  </script>
+
+</body>
+</html>

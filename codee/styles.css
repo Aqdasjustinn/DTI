@@ -1,0 +1,976 @@
+/* ======= 🎨 COLOR PALETTE ======= */
+:root {
+    --primary-color: #134074;
+    /* Dark Blue */
+    --secondary-color: #13315C;
+    /* Deep Navy */
+    --accent-color: #0B2545;
+    /* Rich Blue */
+    --highlight-color: #8DA9C4;
+    /* Soft Blue */
+    --background-color: #EEF4ED;
+    /* Light Greyish White */
+    --text-color: #333;
+    /* Dark Text */
+    --button-hover: #f39c12;
+    /* Warm Highlight */
+}
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* ======= NAVIGATION BAR ======= */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: var(--accent-color);
+    /* ✅ Updated */
+    color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+}
+
+.navbar ul li {
+    /* margin: 0; */
+    margin-left: 15px; /* Ensures even spacing between items */
+    display: flex;
+    align-items: center;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+
+/* Add this so content doesn't go under navbar */
+body {
+    padding-top: 70px;
+}
+
+.navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    /* Keep logo color */
+}
+
+/* .navbar ul {
+    list-style: none;
+    display: flex;
+} */
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.navbar ul li a:hover {
+    color: var(--button-hover);
+    /* ✅ Updated */
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    text-align: center;
+}
+
+.hero img {
+    width: 100%;
+    height: 50vh;
+    object-fit: cover;
+    opacity: 0.8;
+}
+
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.hero-text h1 {
+    font-size: 2.5rem;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+}
+
+/* Info Section */
+.info-section {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.info-section h2 {
+    font-size: 2rem;
+    color: #2c3e50;
+}
+
+.info-section p {
+    max-width: 800px;
+    margin: auto;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Hostel Selection */
+.hostel-selection {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #ecf0f1;
+}
+
+.hostel-selection h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+/* Hostel Boxes */
+.hostel-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.hostel-box {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.hostel-box:hover {
+    transform: scale(1.05);
+}
+
+.hostel-box h3 {
+    color: #2c3e50;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.hostel-box select {
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+}
+
+.hostel-box img {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+/* Contact Section */
+.contact-section {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #34495e;
+    color: white;
+}
+
+.contact-section h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.contact-section p {
+    font-size: 1.1rem;
+}
+
+.contact-section a {
+    color: #f39c12;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-section a:hover {
+    text-decoration: underline;
+}
+
+/* Login Popup - Professional Redesign */
+.login-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 340px; /* Slightly wider for better spacing */
+    background: #ffffff;
+    padding: 30px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    border-radius: 12px;
+    z-index: 1000;
+    font-family: 'Inter', 'Segoe UI', sans-serif; /* Modern font */
+}
+
+.popup-con {
+    text-align: center;
+}
+
+.popup-con h2 {
+    font-size: 1.75rem;
+    margin: 0 0 25px 0;
+    color: #2c3e50;
+    font-weight: 600;
+    letter-spacing: -0.5px; /* Slightly tighter for headings */
+}
+
+.popup-con input {
+    width: 100%;
+    padding: 12px 16px;
+    margin: 10px 0;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: all 0.25s ease;
+    box-sizing: border-box;
+}
+
+.popup-con input:focus {
+    border-color: #f39c12;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(243, 156, 18, 0.15);
+}
+
+.popup-con button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 20px;
+    background: #2c3e50;
+    color: white;
+    border: none;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.25s ease;
+}
+
+.popup-con button:hover {
+    background: #f39c12;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(243, 156, 18, 0.2);
+}
+
+.popup-con button:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+    font-size: 24px;
+    color: #95a5a6;
+    transition: color 0.2s ease;
+    line-height: 1; /* Fix alignment */
+}
+
+.close:hover {
+    color: #e74c3c;
+}
+
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #2c3e50;
+    color: white;
+    font-size: 14px;
+    margin-top: 30px;
+}
+
+
+
+
+/* Room Selection Section */
+.room-selection {
+    padding: 50px 20px;
+    background: var(--background-color);
+    color: var(--text-color);
+    transition: opacity 0.5s ease-in-out;
+}
+
+.hidden {
+    display: none;
+}
+
+.room-selection h2 {
+    font-size: 2rem;
+    color: var(--accent-color);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#floor-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+
+.floor {
+    background: #EEF4ED;                /* ✅ Soft Light Greyish White */
+    border-radius: 12px;
+    padding: 20px;
+    width: 90%;
+    max-width: 1100px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.floor:hover {
+    transform: scale(1.03);
+    background: #8DA9C4;                /* ✅ Subtle blue hover effect */
+}
+
+.floor h3 {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+/* Room Grid Layout */
+.room-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.room {
+    background: var(--background-color);
+    color: var(--text-color);
+    border: 2px solid var(--highlight-color);
+    border-radius: 8px;
+    text-align: center;
+    padding: 15px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Room Status Colors */
+.vacant {
+    background: gray;
+    color: white;
+}
+
+.occupied {
+    background: rgb(3, 3, 55);
+    color: rgb(243, 238, 238);
+}
+
+.selected {
+    background: green;
+    color: white;
+}
+
+.room:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* Girls Hostel Styling Alignment Fix */
+#girls-hostel-rooms {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    text-align: center;          /* ✅ Center Align Girls Hostel */
+    margin: 0 auto;              /* ✅ Center horizontally */
+    width: 90%;                  /* Match Boys Hostel Width */
+    max-width: 1100px;
+}
+
+#girls-hostel-rooms.show {
+    display: block;
+    opacity: 1;
+}
+
+/* Girls Floor Styling */
+.girls-floor {
+    background: #f0f4f8;            /* Lighter background */
+    border-radius: 12px;
+    padding: 20px;
+    width: 100%;                     /* Match Boys Hostel Width */
+    max-width: 1100px;               /* Consistent max width */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    margin: 0 auto;                  /* Center horizontally */
+}
+
+.girls-floor:hover {
+    transform: scale(1.03);
+    background: #d6e4f0;           /* Slightly darker on hover */
+}
+
+
+/* Girls Room Grid */
+.girls-room-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+/* Girls Room Styling */
+.girls-room {
+    background: var(--background-color);
+    color: var(--text-color);
+    border: 2px solid var(--highlight-color);
+    border-radius: 8px;
+    text-align: center;
+    padding: 15px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Girls Room Status Colors */
+.girls-vacant {
+    background: #b0c7df;           /* Softer grayish-blue for vacant rooms */
+    color: #333;
+}
+
+.girls-occupied {
+    background: #5b6e85;           /* Light navy for occupied rooms */
+    color: white;
+}
+
+.girls-selected {
+    background: #4caf50;           /* Green for selected rooms */
+    color: white;
+}
+
+.girls-room:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* ✅ Smooth Transitions & Hidden Display for Girls Hostel */
+.hidden {
+    display: none;
+}
+
+
+
+
+
+
+/* Proceed Button */
+.proceed-btn {
+    display: block;
+    width: 200px;
+    margin: 30px auto;
+    padding: 12px 30px;
+    font-size: 1.2rem;
+    color: white;
+    background: var(--primary-color);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.proceed-btn:hover {
+    background: var(--secondary-color);
+}
+
+
+
+/* ================================
+   FixMyRoom Styles 
+================================ */
+
+/* ✅ General Popup Styling */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    max-width: 1000px;
+    height: auto;
+    background: #EEF4ED;
+    border-radius: 18px;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    display: none;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+/* ✅ Show popup */
+.popup.show {
+    display: block;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* ✅ Close Button */
+.popup .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #13315C;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.popup .close-btn:hover {
+    background: #134074;
+    transform: rotate(90deg) scale(1.1);
+}
+
+/* ✅ Popup Layout */
+.popup-content {
+    display: flex;
+    height: 100%;
+}
+
+/* ✅ User Details Section (Reduced Width) */
+.popup-left {
+    width: 28%;
+    background: #b6bdc3;
+    color: rgb(15, 44, 79);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.1);
+    border-radius: 18px 0 0 18px;
+}
+
+/* ✅ User Info Title */
+.popup-left h2 {
+    font-size: 25px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+/* ✅ User Info Text */
+.popup-left p {
+    margin: 10px 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #040d2e;
+}
+
+/* ✅ Checkbox */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 25px;
+    font-size: 14px;
+    color: #EEF4ED;
+    cursor: pointer;
+}
+
+.checkbox-group input {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.checkbox-group input:hover {
+    transform: scale(1.1);
+}
+
+/* ✅ Categories Section (Increased Width) */
+.popup-right {
+    width: 72%;
+    padding: 40px;
+    background: #f5f5f5;
+    border-radius: 0 20px 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* ✅ Categories Grid */
+.repair-categories {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+/* ✅ Card Styling */
+.card {
+    background: white;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    padding: 20px;
+    height: 220px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* ✅ Highlight Selected Card */
+.card.selected {
+    border: 3px solid #134074;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+/* ✅ Card Hover Animation */
+.card:hover {
+    transform: scale(1.05);
+    border: 2px solid #134074;
+}
+
+/* ✅ Card Image Styling */
+.card img {
+    width: 110px;               /* Uniform image size */
+    height: 110px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* ✅ Card Hover Effect */
+.card:hover img {
+    transform: scale(1.1);
+}
+
+/* ✅ Card Title */
+.card h3 {
+    margin-top: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #134074;
+}
+
+/* ✅ Repair Action Button */
+/* .repair-action {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+} */
+
+.repair-action button {
+    background: #134074;
+    color: white;
+  border: none; 
+    padding: 14px 200px;
+    font-size: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    
+}
+.repair-action button:hover{
+    background: #1edb89;
+    transform: scale(1.03);
+}
+
+/* ✅ Disable Request Repair if not valid */
+.repair-action button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    
+}
+
+/* ✅ Animation Section */
+#repair-animation {
+    text-align: center;
+    font-size: 22px;
+    color: #134074;
+    margin-top: 20px;
+    transition: opacity 1s ease;
+}
+
+#repair-animation.hidden {
+    opacity: 0;
+}
+
+/* ✅ Responsive Design */
+@media (max-width: 1024px) {
+    .popup {
+        width: 90%;
+        max-height: 85%;
+    }
+
+    .popup-content {
+        flex-direction: column;
+    }
+
+    .popup-left, .popup-right {
+        width: 100%;
+        padding: 25px;
+    }
+
+    .repair-categories {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        width: 100%;
+    }
+}
+
+.repair-action button.disabled {
+    background: #bde8c9;              /* Greyed-out button */
+    color: #666;
+    cursor: not-allowed;
+    transform: none;               /* Disable hover effects */
+}
+
+
+
+/* ====================================
+   🌟 SIGNUP POPUP STYLING — WARDIN
+==================================== */
+.signup-popup {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(6px);
+    background-color: rgba(0, 0, 0, 0.3);
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .signup-popup-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    animation: fadeIn 0.3s ease-in-out;
+    position: relative;
+  }
+  
+  .signup-popup-content h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #134074;
+  }
+  
+  /* ====================================
+     🧾 INPUT STYLING
+  ==================================== */
+  .signup-popup-content input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    transition: 0.3s;
+  }
+  
+  .signup-popup-content input:focus {
+    border-color: #134074;
+    box-shadow: 0 0 5px #13407455;
+  }
+  
+  /* ====================================
+     🔘 BUTTON STYLING
+  ==================================== */
+  .signup-popup-content button {
+    margin-top: 8px;
+    padding: 13px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+    width: 100%;
+  }
+  
+  .signup-popup-content button:hover {
+    background-color: #0B2545;
+  }
+  
+  /* Special Signup Button (Final) */
+  .signup-popup-content button:last-of-type {
+    margin-top: 14px;
+    background-color: #134074;
+    color: white;
+    padding: 10px;
+    border-radius: 6px;
+  }
+  
+  /* ✅ Send OTP Button (Shared + Inline) */
+  #sendOtpBtn,
+  .signup-popup-content button.send-otp-btn {
+    background-color: #8DA9C4;
+    color: white;
+    font-size: 14px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+  }
+  
+  #sendOtpBtn:hover,
+  .signup-popup-content button.send-otp-btn:hover {
+    background-color: #134074;
+    transform: scale(1.05);
+  }
+  
+  #sendOtpBtn:active {
+    transform: scale(0.95);
+  }
+  
+  /* ====================================
+     💬 ERROR MESSAGE
+  ==================================== */
+  .error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: -8px;
+    margin-bottom: 8px;
+    padding-left: 2px;
+    text-align: left;
+  }
+  
+  /* ====================================
+     ❌ CLOSE BUTTON
+  ==================================== */
+  .signup-close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 24px;
+    color: #333;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  .signup-close:hover {
+    transform: scale(1.2);
+    color: #134074;
+  }
+  
+  /* ====================================
+     📧 EMAIL + OTP ROW LAYOUT
+  ==================================== */
+  .email-otp-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .email-otp-row input {
+    flex: 1;
+  }
+  
+  /* ====================================
+     🧑 NAVBAR USER + LOGOUT
+  ==================================== */
+  .nav-user-email {
+    color: white;
+    font-weight: 500;
+    padding-right: 10px;
+  }
+  
+  .logout-btn {
+    color: white;
+    border: 1px solid white;
+    padding: 5px 10px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: 0.3s ease;
+  }
+  
+  .logout-btn:hover {
+    background-color: white;
+    color: #13315C;
+  }
+  
+  /* ====================================
+     🎞️ ANIMATIONS
+  ==================================== */
+  @keyframes fadeIn {
+    from {
+      transform: scale(0.9);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeOut {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(0.95); }
+  }
+  
+  .fadeOut,
+  .fade-out {
+    animation: fadeOut 0.3s ease forwards;
+  }

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DormLee - Hostel Booking</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="script.js" defer></script>
+    <script src="swap.html" defer></script>
+</head>
+<body>
+
+    <!-- ✅ Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">DormLee</div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#hostels">Hostels</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="roomxchange.html">RoomXchange</a></li>
+            <li><a href="#" id="fixmyroom-link" onclick="openFixMyRoom()">FixMyRoom</a></li>
+            <li><a href="#" onclick="openLoginPopup()">Login</a></li>
+            <li><a href="#" id="signupBtn" onclick="openSignupPopup()">Signup</a></li>
+            <li id="userInfo" style="display: none; align-items: center;"></li>
+          
+        </ul>
+    </nav>
+        
+    <!-- Hero Section -->
+    <header class="hero">
+        <img src="https://i.ibb.co/p6Pj5yLW/PXL-20240212-081929389.jpg" alt="Campus View">
+        <div class="hero-text">
+            <h1>Find Your Perfect Stay at Bennett University</h1>
+            <p>Book your hostel rooms conveniently with DormLee.</p>
+        </div>
+    </header>
+
+    <!-- Info Section -->
+    <section class="info-section">
+        <h2>Welcome to DormLee</h2>
+        <p>At DormLee, we provide a seamless hostel booking experience for students of Bennett University. Choose from comfortable accommodations, modern facilities, and secure hostels for both boys and girls.</p>
+    </section>
+
+    <!-- Hostel Selection Section -->
+    <section id="hostels" class="hostel-selection">
+        <h2>Choose Your Hostel</h2>
+        
+        <div class="hostel-container">
+            <!-- Boys Hostel Section -->
+            <div class="hostel-box boys-hostel">
+                <h3>Boys' Hostel</h3>
+                <select id="boysWing">
+                    <option>Select Wing</option>
+                    <option value="C1">C1</option>
+                    <option value="C2">C2</option>
+                    <option value="C3">C3</option>
+                    <option value="C4">C4</option>
+                    <option value="C5">C5</option>
+                    <option value="C6">C6</option>
+                    <option value="C7">C7</option>
+                    <option value="C8">C8</option>
+                    <option value="C9">C9</option>
+                    <option value="C10">C10</option>
+                    <option value="C11">C11</option>
+                    <option value="C12">C12</option>
+                </select>
+                <img src="https://i.ibb.co/jtgSYBf/AQMd-Htnu-0m9-FGri-OLsmp57-Hap-QIppep-RVp-HX6-Knyu-OQrsiuzdlz-Gv4-N7-E2-Sse7-D0-Rzx-UECQuo2ta-Va-MMG.jpg" alt="Boys Hostel">
+            </div>
+
+            <!-- Girls Hostel Section -->
+            <div class="hostel-box girls-hostel">
+                <h3>Girls' Hostel</h3>
+                <select id="girlsWing">
+                    <option>Select Wing</option>
+                    <option value="D1">D1</option>
+                    <option value="D2">D2</option>
+                    <option value="D3">D3</option>
+                    <option value="D4">D4</option>
+                    <option value="D5">D5</option>
+                    <option value="D6">D6</option>
+                </select>
+                <img src="https://i.ibb.co/jtgSYBf/AQMd-Htnu-0m9-FGri-OLsmp57-Hap-QIppep-RVp-HX6-Knyu-OQrsiuzdlz-Gv4-N7-E2-Sse7-D0-Rzx-UECQuo2ta-Va-MMG.jpg" alt="Girls Hostel">
+            </div>
+        </div>
+    </section>
+
+
+        <!-- Boys Hostel Room Selection -->
+    <div id="boys-hostel-rooms" class="room-selection hidden">
+        <h2>Boys Hostel – Select Your Room</h2>
+        <div id="floor-container"></div>
+
+        <button id="proceed-btn" class="proceed-btn">Proceed</button>
+    </div>
+
+        <!-- Girls Hostel Room Selection -->
+    <div id="girls-hostel-rooms" class="room-selection hidden">
+        <h2>Girls Hostel – Select Your Room</h2>
+        <div id="girls-floor-container"></div>
+
+        <button id="girls-proceed-btn" class="proceed-btn">Proceed</button>
+    </div>
+
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <h2>Contact Us</h2>
+            <p>Email: <a href="mailto:warden@bennett.edu.in">warden@bennett.edu.in</a></p>
+            <p>Phone: <a href="tel:+918829980012">+91 8829980012</a></p>
+        </section>
+
+        <!-- Login Popup -->
+        <div id="loginPopup" class="login-popup">
+            <div class="popup-con">
+                <span class="close" onclick="closeLoginPopup()">&times;</span>
+                <h2>Login</h2>
+                <form>
+                    <input type="text" placeholder="Username" required> 
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Password" required>
+                    <button type="submit">Login</button>
+                </form>
+            </div>
+        </div>
+
+        
+        <!-- ✅ Signup Popup -->
+        <div class="signup-popup" id="signupPopup">
+            <div class="signup-popup-content">
+            <span class="signup-close" onclick="closeSignupPopup()">×</span>
+            <h2>Signup</h2>
+        
+            <!-- Full Name -->
+            <input type="text" id="signupName" placeholder="Full Name" />
+            <div id="nameError" class="error-message-name"></div>
+        
+            <!-- Mobile Number -->
+            <input type="text" id="signupMobile" placeholder="Mobile Number" />
+            <div id="mobileError" class="error-message-mobile"></div>
+        
+            <!-- Email + OTP -->
+            <div class="email-otp-row">
+                <input type="email" id="signupEmail" placeholder="Bennett Email" />
+                <button id="sendOtpBtn" onclick="handleOtp()">Send OTP</button>
+            </div>
+            <div id="emailError" class="error-message-email"></div>
+        
+            <!-- OTP -->
+            <input type="text" id="signupOTP" placeholder="Enter OTP" />
+            <div id="otpError" class="error-message-otp"></div>
+        
+            <!-- Password -->
+            <input type="password" id="signupPassword" placeholder="Password" />
+            <div id="passwordError" class="error-message-password"></div>
+        
+            <!-- Submit -->
+            <button onclick="signup()">Signup</button>
+            </div>
+        </div>
+  
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 DormLee | All Rights Reserved</p>
+    </footer>
+
+
+
+    
+        <!-- ✅ FixMyRoom Popup -->
+        <div id="fixmyroom-popup" class="popup">
+            <div class="popup-content">
+    
+                <!-- Close Button -->
+                <span class="close-btn" onclick="closeFixMyRoom()">✖</span>
+    
+                <!-- ✅ Left Section: User Details -->
+                <div class="popup-left">
+                    <h2>User Details</h2>
+                    <p><strong>Name:</strong> Aqdas Yunus</p>
+                    <p><strong>Hostel:</strong> C8</p>
+                    <p><strong>Room:</strong> C8-107</p>
+                    <label>
+                        <input type="checkbox" id="request-checkbox">I want to request this repair
+                    </label>
+                </div>
+    
+                <!-- ✅ Right Section: Categories -->
+                <div class="popup-right">
+    
+                    <!-- ✅ 2x2 Grid Layout -->
+                    <div class="repair-categories">
+                        <div class="card" onclick="selectCategory(event, 'Electric')">
+                            <img width="100px" src="https://plus.unsplash.com/premium_vector-1731226389917-fdef8395cbff" alt="Electric">
+                            <h3>Electric</h3>
+                        </div>
+    
+                        <div class="card" onclick="selectCategory(event, 'Fixers')">
+                            <img width="100px" src="https://plus.unsplash.com/premium_vector-1739287065744-a6f0f9e3997c" alt="Fixers">
+                            <h3>Fixers</h3>
+                        </div>
+    
+                        <div class="card" onclick="selectCategory(event, 'Bathroom')">
+                            <img width="100px" src="https://plus.unsplash.com/premium_vector-1733134774459-930935881f94" alt="Bathroom">
+                            <h3>Bathroom</h3>
+                        </div>
+    
+                        <div class="card" onclick="selectCategory(event, 'Room Cleaning')">
+                            <img width="100px" src="https://plus.unsplash.com/premium_vector-1724696536106-5ca25b68cdff" alt="Room Cleaning">
+                            <h3>Room Cleaning</h3>
+                        </div>
+                    </div>
+    
+                    <!-- ✅ Bottom Action Button -->
+                    <div class="repair-action" id="repair-action">
+                        <button id="repair-btn" onclick="requestRepair()" disabled>Request Repair</button>
+                    </div>
+    
+                    <!-- ✅ Repair Animation -->
+                    <div id="repair-animation" class="hidden">🛠️ On our way to fix!</div>
+                </div>
+            </div>
+        </div>
+    
+
+    <!-- ✅ JavaScript -->
+    <script>
+    // ✅ Open and close the FixMyRoom popup
+    function openFixMyRoom() {
+        const popup = document.getElementById('fixmyroom-popup');
+        popup.classList.add('show');
+        popup.style.opacity = '1';
+    }
+
+    function closeFixMyRoom() {
+        const popup = document.getElementById('fixmyroom-popup');
+        popup.classList.remove('show');
+        popup.style.opacity = '0';
+    }
+
+    // ✅ Handle Category Selection
+    function selectCategory(event, category) {
+        const card = event.currentTarget;
+
+        // Deselect all other cards
+        document.querySelectorAll('.card').forEach(c => c.classList.remove('selected'));
+
+        // Select the clicked card
+        card.classList.add('selected');
+
+        // Store selected category in button's dataset
+        const actionBtn = document.getElementById('repair-btn');
+        actionBtn.dataset.category = category;
+
+        // Trigger validation
+        validateConditions();
+    }
+
+    // ✅ Real-time Validation Function
+    function validateConditions() {
+        const checkbox = document.getElementById('request-checkbox');
+        const isCategorySelected = document.querySelector('.card.selected') !== null;
+        const button = document.getElementById('repair-btn');
+
+        // Enable or disable button based on validation
+        button.disabled = !(checkbox.checked && isCategorySelected);
+    }
+
+    // ✅ Handle "Request Repair" Action with Smooth Fade-out
+    function requestRepair() {
+        const repairAnimation = document.getElementById('repair-animation');
+        const popup = document.getElementById('fixmyroom-popup');
+        const checkbox = document.getElementById('request-checkbox');
+        const isCategorySelected = document.querySelector('.card.selected') !== null;
+
+        // ✅ Double-check validation before executing
+        if (!checkbox.checked || !isCategorySelected) {
+            alert('Please select a category and tick the checkbox before requesting repair!');
+            return;  // Stop execution if validation fails
+        }
+
+        // ✅ Show "On our way to fix!" message
+        repairAnimation.classList.remove('hidden');
+
+        // ✅ Display message for 2 seconds
+        setTimeout(() => {
+            repairAnimation.classList.add('hidden');
+
+            // ✅ Smoothly fade out the entire popup
+            popup.style.transition = 'opacity 0.5s ease';
+            popup.style.opacity = '0';
+
+            // ✅ Remove the popup after fading out
+            setTimeout(() => {
+                popup.classList.remove('show');
+                popup.style.opacity = '1';  // Reset opacity for next time
+            }, 500);
+        }, 2000);
+    }
+
+    // ✅ Add event listeners for DOM content load
+    document.addEventListener('DOMContentLoaded', () => {
+        const checkbox = document.getElementById('request-checkbox');
+        const requestBtn = document.getElementById('repair-btn');
+
+        // ✅ Handle checkbox changes to validate conditions
+        checkbox.addEventListener('change', validateConditions);
+
+        // ✅ Add click event listener for the "Request Repair" button
+        requestBtn.addEventListener('click', requestRepair);
+
+        // ✅ Handle category click events
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('click', validateConditions);
+        });
+    });
+    </script>
+
+    
+</body>
+</html>
