@@ -1,4 +1,4 @@
-# Wadin
+# Wardin
 Wardin is a modern and user-friendly hostel booking website designed specifically for students. It allows users to browse available hostel wings, select their preferred rooms, and book accommodations effortlessly.
 
 ✨ Features
